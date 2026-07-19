@@ -25,4 +25,20 @@ public class CalculatorTest {
         int result = calculator.plus(1, 2);
         assertThat(result).isEqualTo(3);
     }
+
+    @Test
+    @DisplayName("plus 함수 4 + 6 테스트")
+    public void t4() {
+        Calculator calculator = new Calculator();
+        int result = calculator.plus(4, 6);
+        assertThat(result).isEqualTo(10);
+    }
+
+    @Test
+    @DisplayName("plus 함수 10 + 20 테스트")
+    public void t5() {
+        Calculator calculator = new Calculator();
+        int result = calculator.plus(10, 20);
+        assertThat(result).isEqualTo(30);
+    }
 }
