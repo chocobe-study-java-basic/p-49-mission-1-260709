@@ -1,6 +1,7 @@
 package com.github.chocobe.homework;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -162,5 +163,11 @@ class CalcTest {
     @DisplayName("-(10 + 5) == -15")
     void t25() {
         assertThat(this.calc.run("-(10 + 5)")).isEqualTo(-15);
+    }
+
+    @Test
+    @DisplayName("-(8 + 2) * -(7 + 3) + 5 == 105")
+    void t26() {
+        assertThat(this.calc.run("-(8 + 2) * -(7 + 3) + 5")).isEqualTo(105);
     }
 }

@@ -15,11 +15,35 @@ public class Calc {
      */
     private String flatEval(String eval) {
         int indexOfStart = eval.indexOf("(");
-        int indexOfEnd = eval.lastIndexOf(")");
-
-        if (indexOfStart < 0 && indexOfEnd < 0) {
+        if (indexOfStart < 0) {
             return eval;
         }
+
+        // FIXME: 독립된 복수의 괄호 있을 때, 괄호 구조 망가짐
+        // int indexOfEnd = eval.lastIndexOf(")");
+
+        int numOfPairs = 1;
+        int indexOfEnd = -1;
+
+        for (int i = indexOfStart + 1; i < eval.length(); i++) {
+            if (eval.charAt(i) == '(') {
+                numOfPairs++;
+                continue;
+            }
+
+            if (eval.charAt(i) == ')') {
+                indexOfEnd = i;
+                numOfPairs--;
+
+                if (numOfPairs == 0) {
+                    break;
+                }
+            }
+        }
+
+        // if (indexOfStart < 0 && indexOfEnd < 0) {
+        //     return eval;
+        // }
 
         String subEval = eval.substring(indexOfStart + 1, indexOfEnd);
         String flatted = this.run(subEval) + "";
@@ -40,8 +64,17 @@ public class Calc {
     - `flatEval()` 메소드와 순환 함수
      */
     public int run(String eval) {
-        String flattedEval = this.flatEval(eval);
-        List<String> words = new ArrayList<>(List.of(flattedEval.split(" ")));
+        String flattenedEval = eval;
+
+        while (flattenedEval.contains("(")) {
+            flattenedEval = this.flatEval(flattenedEval);
+        }
+
+        List<String> words = new ArrayList<>(List.of(flattenedEval.split(" ")));
+
+        // FIXME: t26() 실패
+        // String flattedEval = this.flatEval(eval);
+        // List<String> words = new ArrayList<>(List.of(flattedEval.split(" ")));
 
         while (words.size() > 2) {
             int indexOfOperator = 1;
