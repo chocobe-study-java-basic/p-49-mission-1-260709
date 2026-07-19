@@ -1,7 +1,5 @@
 package com.github.chocobe.homework;
 
-import java.util.Arrays;
-
 public class Calc {
     public Calc() {
         System.out.println("Calc 인스턴스 생성 완료");
@@ -9,18 +7,18 @@ public class Calc {
 
     public int run(String eval) {
         String[] words = eval.split(" ");
-        System.out.println(Arrays.asList(words));
+        int result = Integer.parseInt(words[0]);
 
-        int num1 = Integer.parseInt(words[0]);
-        int num2 = Integer.parseInt(words[2]);
-        String operator = words[1];
+        for (int i = 1; i < words.length; i += 2) {
+            String operator = words[i];
+            int operand = Integer.parseInt(words[i + 1]);
 
-        switch (operator) {
-            case "+" -> {
-                return num1 + num2;
+            switch (operator) {
+                case "+" -> result += operand;
+                case "-" -> result -= operand;
             }
         }
 
-        return num1 - num2;
+        return result;
     }
 }
