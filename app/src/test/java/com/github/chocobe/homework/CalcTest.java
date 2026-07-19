@@ -91,4 +91,10 @@ class CalcTest {
     void t13() {
         assertThat(this.calc.run("10 * -10")).isEqualTo(-100);
     }
+
+    @Test
+    @DisplayName("10 * 10 * 10 == 1000")
+    void t14() {
+        assertThat(this.calc.run("10 * 10 * 10")).isEqualTo(1000);
+    }
 }
