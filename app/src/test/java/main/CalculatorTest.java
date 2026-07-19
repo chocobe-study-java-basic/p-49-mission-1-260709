@@ -14,4 +14,11 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         calculator.plus(1, 2);
     }
+
+    @Test
+    public void t3() {
+        Calculator calculator = new Calculator();
+        int result = calculator.plus(1, 2);
+        assertThat(result).isEqualTo(3);
+    }
 }

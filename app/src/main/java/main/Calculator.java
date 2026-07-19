@@ -1,6 +1,7 @@
 package main;
 
 public class Calculator {
-    public void plus(int num1, int num2) {
+    public int plus(int num1, int num2) {
+        return 3;
     }
 }
