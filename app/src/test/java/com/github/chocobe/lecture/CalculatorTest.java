@@ -1,4 +1,4 @@
-package main;
+package com.github.chocobe.lecture;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -38,7 +38,8 @@ java {
 application {
     // Define the main class for the application.
 //    mainClass = "org.example.App"
-    mainClass = "main.App"
+//    mainClass = "main.App"
+    mainClass = "com.github.chocobe.App"
 }
 
 tasks.named<Test>("test") {
