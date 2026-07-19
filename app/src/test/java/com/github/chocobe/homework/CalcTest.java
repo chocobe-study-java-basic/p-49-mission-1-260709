@@ -29,18 +29,24 @@ class CalcTest {
     @Test
     @DisplayName("2 + 2 == 4")
     void t3() {
-        assertThat(this.calc.run("2 + 2 == 4")).isEqualTo(4);
+        assertThat(this.calc.run("2 + 2")).isEqualTo(4);
     }
 
     @Test
     @DisplayName("1000 + 280 == 1280")
     void t4() {
-        assertThat(this.calc.run("1000 + 280 == 1280"));
+        assertThat(this.calc.run("1000 + 280"));
     }
 
     @Test
     @DisplayName("2 - 1 == 1")
     void t5() {
-        assertThat(this.calc.run("2 - 1 == 1")).isEqualTo(1);
+        assertThat(this.calc.run("2 - 1")).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("3 - 1 == 2")
+    void t6() {
+        assertThat(this.calc.run("3 - 1")).isEqualTo(2);
     }
 }
