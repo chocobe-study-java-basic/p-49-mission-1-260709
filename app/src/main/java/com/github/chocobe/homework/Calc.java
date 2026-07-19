@@ -16,6 +16,7 @@ public class Calc {
             switch (operator) {
                 case "+" -> result += operand;
                 case "-" -> result -= operand;
+                case "*" -> result *= operand;
             }
         }
 
