@@ -15,11 +15,12 @@ public class Calc {
     /*
     - `flatEval()` 메소드와 순환 함수
      */
-    public int run(String eval) {
+    public static int run(String eval) {
         String flattenedEval = eval;
 
         while (flattenedEval.contains("(")) {
-            flattenedEval = this.flatEval(flattenedEval);
+            // NOTE: `Calc.flatEval()` 순환 호출부
+            flattenedEval = Calc.flatEval(flattenedEval);
         }
 
         List<String> words = new ArrayList<>(List.of(flattenedEval.split(" ")));
@@ -60,7 +61,7 @@ public class Calc {
     괄호가 있으면 평탄화 해서 문자열로 반환
     - `run()` 메소드와 순환 호출
      */
-    private String flatEval(String eval) {
+    private static String flatEval(String eval) {
         int indexOfStart = eval.indexOf("(");
         if (indexOfStart < 0) {
             return eval;
@@ -86,7 +87,9 @@ public class Calc {
         }
 
         String subEval = eval.substring(indexOfStart + 1, indexOfEnd);
-        String flatted = this.run(subEval) + "";
+
+        // NOTE: `Calc.run()` 순환 호출부
+        String flatted = Calc.run(subEval) + "";
 
         StringBuilder sb = new StringBuilder(eval);
         sb.replace(indexOfStart, indexOfEnd + 1, flatted);
