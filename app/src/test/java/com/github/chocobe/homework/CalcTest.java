@@ -176,4 +176,10 @@ class CalcTest {
     void t27() {
         assertThat(this.calc.run("5 - (1 + 5)")).isEqualTo(-1);
     }
+
+    @Test
+    @DisplayName("3 * 1 + (1 - (4 * 1 - (1 - 1))) == 0")
+    void t28() {
+        assertThat(this.calc.run("3 * 1 + (1 - (4 * 1 - (1 - 1)))")).isEqualTo(0);
+    }
 }
