@@ -145,4 +145,10 @@ class CalcTest {
     void t22() {
         assertThat(this.calc.run("((20 + 20)) + 20")).isEqualTo(60);
     }
+
+    @Test
+    @DisplayName("(10 + 20) * 3 == 90")
+    void t23() {
+        assertThat(this.calc.run("(10 + 20) * 3 == 90")).isEqualTo(90);
+    }
 }
