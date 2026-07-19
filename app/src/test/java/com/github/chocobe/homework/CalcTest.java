@@ -19,4 +19,10 @@ class CalcTest {
     void t1() {
         assertThat(this.calc.run("1 + 1")).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("2 + 1 == 3")
+    void t2() {
+        assertThat(this.calc.run("2 + 1")).isEqualTo(3);
+    }
 }
