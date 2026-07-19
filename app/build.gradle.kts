@@ -18,7 +18,10 @@ repositories {
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
+    // Use AssertJ for test assertions
+    testImplementation(libs.assertj)
 
+    // Test Environment: junit-platform
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // This dependency is used by the application.
