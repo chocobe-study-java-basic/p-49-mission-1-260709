@@ -1,21 +1,25 @@
 package main;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CalculatorTest {
     @Test
+    @DisplayName("테스트 할 수 있다.")
     public void test1() {
         System.out.println("test1");
     }
 
     @Test
+    @DisplayName("plus 함수 구현")
     public void t2() {
         Calculator calculator = new Calculator();
         calculator.plus(1, 2);
     }
 
     @Test
+    @DisplayName("plus 함수 1 + 2 테스트")
     public void t3() {
         Calculator calculator = new Calculator();
         int result = calculator.plus(1, 2);
