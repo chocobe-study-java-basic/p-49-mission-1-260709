@@ -10,14 +10,38 @@ public class Calc {
     }
 
     /*
+    괄호가 있으면 평탄화 해서 문자열로 반환
+    - `run()` 메소드와 순환 호출
+     */
+    private String flatEval(String eval) {
+        int indexOfStart = eval.indexOf("(");
+        int indexOfEnd = eval.lastIndexOf(")");
+
+        if (indexOfStart < 0 && indexOfEnd < 0) {
+            return eval;
+        }
+
+        String subEval = eval.substring(indexOfStart + 1, indexOfEnd);
+        String flatted = this.run(subEval) + "";
+
+        StringBuilder sb = new StringBuilder(eval);
+        sb.replace(indexOfStart, indexOfEnd + 1, flatted);
+
+        return sb.toString();
+    }
+
+    /*
     TODO: 리스트 가공 연습 필요
     - 리스트 중간 요소 수정하기
     - 리스트 중간 요소 n개 삭제하기
     - 리스트 중간에 요소 n개 추가하기
     - 리스트에서 특정 요소의 index 찾기
+
+    - `flatEval()` 메소드와 순환 함수
      */
     public int run(String eval) {
-        List<String> words = new ArrayList<>(Arrays.stream(eval.split(" ")).toList());
+        String flattedEval = this.flatEval(eval);
+        List<String> words = new ArrayList<>(List.of(flattedEval.split(" ")));
 
         while (words.size() > 2) {
             int indexOfOperator = 1;
