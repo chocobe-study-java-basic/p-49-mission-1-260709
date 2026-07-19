@@ -13,7 +13,14 @@ public class Calc {
 
         int num1 = Integer.parseInt(words[0]);
         int num2 = Integer.parseInt(words[2]);
+        String operator = words[1];
 
-        return num1 + num2;
+        switch (operator) {
+            case "+" -> {
+                return num1 + num2;
+            }
+        }
+
+        return num1 - num2;
     }
 }

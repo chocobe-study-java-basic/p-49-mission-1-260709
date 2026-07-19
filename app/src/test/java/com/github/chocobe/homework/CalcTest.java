@@ -37,4 +37,10 @@ class CalcTest {
     void t4() {
         assertThat(this.calc.run("1000 + 280 == 1280"));
     }
+
+    @Test
+    @DisplayName("2 - 1 == 1")
+    void t5() {
+        assertThat(this.calc.run("2 - 1 == 1")).isEqualTo(1);
+    }
 }
