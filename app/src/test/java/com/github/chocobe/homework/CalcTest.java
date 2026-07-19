@@ -127,4 +127,10 @@ class CalcTest {
     void t19() {
         assertThat(this.calc.run("((10 + 20))")).isEqualTo(30);
     }
+
+    @Test
+    @DisplayName("(((10 + 20)))")
+    void t20() {
+        assertThat(this.calc.run("(((10 + 20)))"));
+    }
 }
