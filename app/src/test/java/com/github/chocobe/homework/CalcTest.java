@@ -170,4 +170,10 @@ class CalcTest {
     void t26() {
         assertThat(this.calc.run("-(8 + 2) * -(7 + 3) + 5")).isEqualTo(105);
     }
+
+    @Test
+    @DisplayName("5 - (1 + 5) == -1")
+    void t27() {
+        assertThat(this.calc.run("5 - (1 + 5)")).isEqualTo(-1);
+    }
 }
